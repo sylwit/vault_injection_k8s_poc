@@ -1,0 +1,16 @@
+version: '3.7'
+
+services:
+  vault:
+    image: vault:1.6.0
+    cap_add:
+      - IPC_LOCK
+#    ports:
+#      - "8200:8200"
+    env_file:
+      - .env
+    environment:
+      VAULT_ADDR: http://0.0.0.0:8200
+      VAULT_DEV_ROOT_TOKEN_ID: root
+    network_mode: "host"
+
